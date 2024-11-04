@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>EFKIREN Youssouf Sujet-01</title>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Commande de Pizza</h1>
+        <form id="commandePizza">
+            <label for="nom">Nom du client:</label>
+            <input type="text" name="nom" id="nom" required><br><br>
+        
+            <label for="adresse">Adresse du client:</label>
+            <input type="text" name="adresse" id="adresse" required><br><br>
+        
+            <label for="pizza">Choisir une pizza:</label>
+            <select name="pizza" id="pizza">
+            </select><br><br>
+        
+            <label for="quantite">Quantité:</label>
+            <input type="number" name="quantite" id="quantite" min="1" max="10" value="1"><br><br>
+        
+            <button type="button" onclick="ajouter()">Ajouter</button>
+            <button type="reset">Annuler</button>
+        </form>
+        <div>
+            <a href="https://google.com">
+                <button class="styled-button">
+                    SUJET 02 : Application REACT JS
+                    <i class="fa-sharp fa-solid fa-arrow-right fa-beat fa-2xl"></i>
+                </button>
+            </a>
+        </div>        
+    </div>
+
+    <div class="right-container">
+        <div class="show">
+            <h3>Les articles choisis</h3>
+            <table id="tableArticles">
+                <thead>
+                    <tr>
+                        <th>Nom de la Pizza</th>
+                        <th>Quantité</th>
+                        <th>Prix Unitaire</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            <h4 id="totalCommande"></h4>
+        </div>
+
+        <form id="paiementForm">
+            <label for="paiement">Paiement par :</label><br>
+            
+            <input type="radio" id="cb" name="paiement" value="cb" onchange="gererPaiement()" required>
+            <label for="cb">Carte Bancaire</label><br>
+            
+            <input type="radio" id="cheque" name="paiement" value="cheque" onchange="gererPaiement()" required>
+            <label for="cheque">Chèque</label><br><br>
+        
+            <label for="numCarteBancaire">Numéro de la carte bancaire :</label>
+            <input type="text" name="numCarteBancaire" id="numCarteBancaire" required><br><br>
+        
+            <label for="total">Montant Total:</label>
+            <input type="text" id="total" name="total" disabled><br><br>
+            
+            <button type="button" onclick="afficherPopup()">Valider</button>
+        </form>
+    </div>
+
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="fermerPopup()">&times;</span>
+            <h2>Détails de la Commande</h2>
+            <div id="detailsCommande"></div>
+            <button onclick="imprimerCommande()">Imprimer</button>
+            <button onclick="fermerPopup()">Quitter</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
